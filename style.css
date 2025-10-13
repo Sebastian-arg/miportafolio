@@ -25,20 +25,19 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(13, 15, 26, 0.9);
+  background: l
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 10px 40px;
   z-index: 1000;
   backdrop-filter: blur(8px);
 }
 
-.logo {
-  color: var(--accent);
-  font-weight: 700;
-  font-size: 1.4rem;
-  letter-spacing: 2px;
+.logo img {
+  height: 60px; /* Revertido a 60px */
+  width: auto;
+  display: block;
 }
 
 .nav-links {
@@ -73,13 +72,35 @@ body {
 
 /* HERO */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 50px;
   background: var(--gradient);
-  text-align: center;
-  padding: 0 20px;
+  text-align: left;
+  padding: 100px 50px 50px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.profile-pic-container {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 20%;
+}
+
+.hero-content {
+  max-width: 600px;
 }
 
 .hero h1 {
@@ -99,15 +120,17 @@ body {
 .description {
   margin-top: 20px;
   font-size: 1rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* SECCIONES */
 .section {
   padding: 80px 20px;
   text-align: center;
+}
+
+.skills-section {
+  background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 70%);
+  border-bottom: 2px solid var(--accent);
 }
 
 .section-title {
@@ -121,6 +144,7 @@ body {
   max-width: 600px;
   margin: auto;
   text-align: left;
+  padding: 0 20px;
 }
 
 .skills li {
@@ -142,6 +166,8 @@ body {
   width: 280px;
   padding: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .card:hover {
@@ -149,10 +175,67 @@ body {
   box-shadow: 0 8px 20px rgba(249, 179, 47, 0.2);
 }
 
+.certificate-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  flex-grow: 1;
+  object-fit: cover;
+}
+
+.card-content {
+  text-align: center;
+}
+
 .icon {
   font-size: 2rem;
   color: var(--accent);
   margin-bottom: 15px;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 700px;
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0.4)}
+  to {transform:scale(1)}
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: var(--accent);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* CONTACTO */
@@ -162,6 +245,7 @@ body {
   margin-top: 10px;
   font-weight: 600;
   text-decoration: none;
+  word-break: break-all;
 }
 
 .contact-link:hover {
@@ -170,24 +254,31 @@ body {
 
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 20px 10px;
   background: #0b0c15;
   color: #888;
   font-size: 0.9rem;
   margin-top: 40px;
 }
 
-/* RESPONSIVE */
+/* --- RESPONSIVE DESIGN --- */
+
+/* TABLETS Y MÓVILES GRANDES */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     background: #0b0c15;
     position: absolute;
-    top: 60px;
+    top: 80px; /* Ajustado para la nueva altura del navbar */
     right: 0;
     width: 200px;
     padding: 20px;
+    border-radius: 0 0 10px 10px;
   }
 
   .nav-links.active {
@@ -198,12 +289,69 @@ footer {
     display: flex;
   }
 
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 120px 20px 60px;
+    gap: 30px;
+  }
+
+  .profile-pic-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    width: 320px;
+  }
+}
+
+/* MÓVILES PEQUEÑOS */
+@media (max-width: 480px) {
+  .hero {
+    padding: 100px 20px 40px;
+  }
+
+  .profile-pic-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+  
   .cards {
     flex-direction: column;
     align-items: center;
   }
 
-  .hero h2 {
-    font-size: 1.5rem;
+  .card {
+    width: 90%;
+    max-width: 300px;
+  }
+  
+  .modal-content {
+    width: 95%;
   }
 }

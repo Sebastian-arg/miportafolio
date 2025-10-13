@@ -6,12 +6,13 @@
   <title>Portafolio - Rodrigo Sebastián Vargas</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script>
 </head>
 <body>
   <!-- Navbar -->
   <header class="navbar">
-    <div class="logo">RSV</div>
+    <div class="logo">
+      <img src="img/LogoFinal-removebg-preview.png" alt="Logo de Rodrigo Sebastián Vargas">
+    </div>
     <nav class="nav-links" id="nav-links">
       <a href="#inicio">Inicio</a>
       <a href="#habilidades">Habilidades</a>
@@ -26,6 +27,9 @@
 
   <!-- Sección Inicio -->
   <section id="inicio" class="hero">
+    <div class="profile-pic-container">
+      <img src="mi cara con ia.png" alt="Foto de perfil de Rodrigo Sebastián Vargas" class="profile-pic">
+    </div>
     <div class="hero-content">
       <h1>Bienvenido a mi portafolio</h1>
       <h2>Mi nombre es <span class="highlight">Rodrigo Sebastián Vargas</span></h2>
@@ -36,7 +40,7 @@
   </section>
 
   <!-- Habilidades -->
-  <section id="habilidades" class="section">
+  <section id="habilidades" class="section skills-section">
     <h2 class="section-title">Habilidades</h2>
     <ul class="skills">
       <li>Desarrollo web (HTML, CSS, JavaScript, PHP, Laravel)</li>
@@ -69,20 +73,70 @@
     <h2 class="section-title">Certificados</h2>
     <div class="cards">
       <div class="card">
-        <i class="icon">📜</i>
-        <h3>Certificado en Inteligencia Artificial</h3>
-        <p>Curso sobre fundamentos de IA, redes neuronales y aprendizaje automático.</p>
+        <img src="img/certificadoia.png" alt="Certificado en Inteligencia Artificial" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Inteligencia Artificial</h3>
+        </div>
       </div>
       <div class="card">
-        <i class="icon">📊</i>
-        <h3>Certificado en Excel Avanzado</h3>
-        <p>Gestión de datos, automatización con macros y análisis estadístico.</p>
+        <img src="img/rodrigo-Desafio-Ladder-8211-Automatizacion-Industrial-Certificado-Desafio-Ladder-Cursos-Gratis-8211-.png" alt="Certificado en Automatización Industrial" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Automatización Industrial</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/certificado-excel-basico.jpeg" alt="Certificado en Excel Básico" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Excel Básico</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/certificado-reparacion-de-celular.jpeg" alt="Certificado en Reparación de Celulares" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Reparación de Celulares</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Certificado Programacion y robotica.jpeg" alt="Certificado en Programación y Robótica" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Programación y Robótica</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Certificado de internet-inteligencia artificial.jpeg" alt="Certificado en Internet e IA" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Internet e IA</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Certificado-Diseño-Web.jpeg" alt="Certificado en Diseño Web" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Diseño Web</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/Certificado-Oratoria para programadores.jpeg" alt="Certificado en Oratoria para Programadores" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Oratoria para Programadores</h3>
+        </div>
+      </div>
+      <div class="card">
+        <img src="img/certificado-curso-mecanica-general.jpeg" alt="Certificado en Mecánica General" class="certificate-image">
+        <div class="card-content">
+          <h3>Certificado en Mecánica General</h3>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span class="close-button">&times;</span>
+    <img class="modal-content" id="modal-image">
+  </div>
+
   <!-- Contacto -->
-  <section id="contacto" class="section">
+  <section id="contacto" class->
     <h2 class="section-title">Contacto</h2>
     <p class="contact-text">Podés contactarme a través de mi correo:</p>
     <a href="mailto:rodrigosebastianvargas@example.com" class="contact-link">rodrigosebastianvargas@example.com</a>
@@ -91,5 +145,7 @@
   <footer>
     <p>© 2025 Rodrigo Sebastián Vargas — Todos los derechos reservados</p>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
