@@ -24,12 +24,13 @@ body {
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
   background: rgba(13, 15, 26, 0.8);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 40px;
+  padding: 5px 20px;
   z-index: 1000;
   backdrop-filter: blur(8px);
 }
@@ -40,9 +41,36 @@ body {
   display: block;
 }
 
-.nav-links {
+/* --- Mobile Nav --- */
+.hamburger {
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 5px;
+}
+
+.nav-links {
+  display: none; /* Hidden on mobile */
+  flex-direction: column;
+  background: #0b0c15;
+  position: absolute;
+  top: 60px; /* Position below navbar */
+  right: 0;
+  width: 200px;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  z-index: 999;
+}
+
+.nav-links.active {
+  display: flex; /* Show when hamburger is clicked */
 }
 
 .nav-links a {
@@ -56,18 +84,22 @@ body {
   color: var(--accent);
 }
 
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-}
 
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 5px;
+/* --- Desktop Nav (Overrides Mobile) --- */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none; /* Hide on desktop */
+  }
+
+  .nav-links {
+    display: flex; /* Show on desktop */
+    position: static;
+    flex-direction: row;
+    background: transparent;
+    width: auto;
+    padding: 0;
+    gap: 30px;
+  }
 }
 
 /* HERO */
@@ -286,33 +318,9 @@ footer#contacto {
   color: #888;
 }
 
-/* --- RESPONSIVE DESIGN --- */
+/* --- RESPONSIVE ADJUSTMENTS for sections/cards etc --- */
 
 @media (max-width: 768px) {
-  .navbar {
-    padding: 5px 20px;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: #0b0c15;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 20px;
-    border-radius: 0 0 10px 10px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
   .hero {
     flex-direction: column;
     text-align: center;
